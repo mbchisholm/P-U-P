@@ -98,13 +98,13 @@ From inside your SSH session on the Pi, run the setup script included in this mo
 
 ```bash
 # (you're still connected via SSH)
-curl -fsSL https://raw.githubusercontent.com/TrellisLabs/power-user-principles/main/modules/11-pi-ssh/pi-setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mbchisholm/P-U-P/main/modules/11-pi-ssh/pi-setup.sh | bash
 ```
 
 Or clone the repo onto the Pi and run it locally:
 
 ```bash
-git clone https://github.com/TrellisLabs/power-user-principles.git
+git clone https://github.com/mbchisholm/P-U-P.git power-user-principles
 bash power-user-principles/modules/11-pi-ssh/pi-setup.sh
 ```
 

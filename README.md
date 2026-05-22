@@ -2,48 +2,55 @@
 
 A self-paced curriculum that takes a complete beginner from "I've never opened a terminal" to "I can SSH into my Raspberry Pi, hit an API, and ship code from VS Code."
 
-**No prior experience required. Mac and Windows supported.**
+**No prior experience required. Mac and Windows supported (WSL2).**
 
 ---
 
-## Start Here
+## Why
 
-**[→ Module 00: Start Here](modules/00-start-here/README.md)**
+The command line isn't a relic. It's the substrate of everything — every cloud provider, every CI/CD pipeline, every server in production runs on text commands. Finder and the GUI tools you've used your whole life are *skins*. Once you can work without the skin, you can work anywhere.
 
-Module 00 is the only required starting point. It walks you through getting a working terminal and cloning this repo. Everything else follows from there.
-
----
-
-## The Modules
-
-| # | Module | What it proves | Time | Prereqs |
-|---|--------|---------------|------|---------|
-| [00](modules/00-start-here/README.md) | Start Here | "My machine is ready. I have a terminal and I cloned this repo." | 30–60 min | none |
-| [01](modules/01-terminal-and-shell/README.md) | The Terminal & The Shell | "A shell is a program that takes text and runs it." | 30 min | 00 |
-| [02](modules/02-filesystem/README.md) | The File System Is a Tree | "Finder is a skin. I can navigate, create, and destroy from text." | 45 min | 01 |
-| [03](modules/03-processes-permissions/README.md) | Processes, Permissions, Networks | "Programs are processes. Files have owners. My machine has an IP." | 45 min | 02 |
-| [04](modules/04-ssh-and-github/README.md) | SSH Keys & GitHub | "I have an identity online and a key that proves it's me." | 45 min | 02 |
-| [05](modules/05-developer-folder/README.md) | The Developer Folder | "Code lives in a place. My place has a structure." | 20 min | 02 |
-| [06](modules/06-tooling-installs/README.md) | Tooling: Python, Node, Git | "I have the languages and tools real projects need." | 45 min | 00 |
-| [07](modules/07-terminal-config/README.md) | Terminal & Editor Config | "My terminal works the way my brain works." | 30 min | 01 |
-| [08](modules/08-ide-and-git/README.md) | IDE & Git Workflow | "I can clone a repo, edit it, commit, and push." | 60 min | 04, 05, 06 |
-| [09](modules/09-api-project/README.md) | Hitting an API | "I can talk to a service on the internet from code I wrote." | 60 min | 06, 08 |
-| [10](modules/10-database-project/README.md) | A Tiny Database | "I can persist data and read it back later." | 60 min | 08 |
-| [11](modules/11-pi-ssh/README.md) | SSH Into a Pi *(optional)* | "I can run a program on a computer that's not in front of me." | 45 min | 04 |
+This curriculum teaches the substrate.
 
 ---
 
-## How to Use This
+## Start
 
-Each module is standalone. Work through them in order or jump to a specific topic. The **Prereqs** column tells you what to do first.
+**[→ Module 00: Start Here](modules/00-start-here/README.md)** — get a working terminal and clone this repo. It's the only required first step. Everything else follows from there.
 
-Every module ends with a `verify.sh` script:
+---
 
-```bash
-bash modules/00-start-here/verify.sh
-```
+## The 12 modules
 
-Run it to confirm you completed the module correctly. Green checkmarks mean you're ready to move on.
+| # | Module | You'll be able to say… | Time | Prereqs |
+|---|--------|------------------------|------|---------|
+| 00 | [Start Here](modules/00-start-here/README.md) | "My machine is ready. I cloned this repo." | 30–60 min | — |
+| 01 | [The Terminal & The Shell](modules/01-terminal-and-shell/README.md) | "A shell is a program that runs other programs." | 30 min | 00 |
+| 02 | [The File System Is a Tree](modules/02-filesystem/README.md) | "I can navigate, create, and destroy from text." | 45 min | 01 |
+| 03 | [Processes, Permissions, Networks](modules/03-processes-permissions/README.md) | "Programs are processes. Files have owners. My machine has an IP." | 45 min | 02 |
+| 04 | [SSH Keys & GitHub](modules/04-ssh-and-github/README.md) | "I have an identity online and a key that proves it." | 45 min | 02 |
+| 05 | [The Developer Folder](modules/05-developer-folder/README.md) | "Code lives in a place. My place has a structure." | 20 min | 02 |
+| 06 | [Tooling: Python, Node, Git](modules/06-tooling-installs/README.md) | "I have the languages and tools real projects need." | 45 min | 00 |
+| 07 | [Terminal & Editor Config](modules/07-terminal-config/README.md) | "My terminal works the way my brain works." | 30 min | 01 |
+| 08 | [IDE & Git Workflow](modules/08-ide-and-git/README.md) | "I can clone, edit, commit, and push." | 60 min | 04, 05, 06 |
+| 09 | [Hitting an API](modules/09-api-project/README.md) | "I can talk to a service on the internet from code I wrote." | 60 min | 06, 08 |
+| 10 | [A Tiny Database](modules/10-database-project/README.md) | "I can persist data and read it back later." | 60 min | 08 |
+| 11 | [SSH Into a Pi](modules/11-pi-ssh/README.md) *(optional)* | "I can run a program on a computer that's not in front of me." | 45 min | 04 |
+
+Work through them in order or jump to a topic. **Prereqs** tell you what to do first.
+
+---
+
+## How a module works
+
+Every module follows the same shape:
+
+1. **Why this matters** — one paragraph framing the concept
+2. **Walkthrough** — concept → command → "Try it" block, repeated
+3. **Follow-along demo** *(some modules)* — a runnable script in `demo/` you can read, modify, and break
+4. **Verify** — `bash modules/<NN>/verify.sh` prints green checkmarks or tells you what's missing
+5. **What you can do now** — concrete payoff statement
+6. **Stretch** — optional deeper exercises
 
 To check your whole environment at once:
 
@@ -53,28 +60,26 @@ bash scripts/verify-env.sh
 
 ---
 
-## What's in This Repo
+## Repo layout
 
 ```
-modules/         ← the curriculum, one folder per module
-scripts/         ← shared helper scripts (install-mac.sh, install-wsl.sh, verify-env.sh)
-templates/       ← project starters (.gitignore, .env.example, poker-ledger-starter)
-reference/       ← cheat sheets (shell-quick-ref.md, git-quick-ref.md, shortcuts.md)
-archive/         ← old content kept for reference
+modules/      the 12 lessons (each with README, demo scripts, verify.sh)
+scripts/      install-mac.sh, install-wsl.sh, verify-env.sh
+templates/    project starters: env-example, gitignore-starter, poker-ledger-starter
+reference/    cheat sheets: shell, git, keyboard shortcuts
+archive/      old live-workshop material, kept for reference
 ```
 
 ---
 
-## Quick Reference
+## Quick reference
 
-- [Shell commands](reference/shell-quick-ref.md)
-- [Git workflow](reference/git-quick-ref.md)
-- [Keyboard shortcuts](reference/shortcuts.md)
+- **[Shell commands](reference/shell-quick-ref.md)** — pwd, ls, cd, pipes, find/grep, processes, networking
+- **[Git workflow](reference/git-quick-ref.md)** — the core loop, branches, undoing, commit conventions
+- **[Keyboard shortcuts](reference/shortcuts.md)** — terminal, VS Code, common chords
 
 ---
 
-## The Thesis
+## License & contributing
 
-The command line is not a relic. It's the substrate of everything — every cloud provider, every CI/CD pipeline, every server in production runs on text commands. Finder and GUI tools are skins. Once you can work without the skin, you can work anywhere.
-
-This curriculum teaches the substrate.
+This is a personal, open educational project. Feedback and issues welcome — open one on GitHub if a step doesn't work or a concept didn't land.

@@ -29,12 +29,14 @@ cd ~
 
 Examples:
 ```
-~/Developer/TrellisLabs/power-user-principles/
+~/Developer/mbchisholm/P-U-P/
 ~/Developer/stripe/stripe-python/
 ~/Developer/personal/dotfiles/
 ```
 
 The structure mirrors where code lives on GitHub: `github.com/org/repo` → `~/Developer/org/repo`. When you `cd` into it from the terminal, the path tells you exactly what project you're in and who owns it.
+
+> In Module 00 we cloned this workshop flat at `~/Developer/power-user-principles/` to keep the early commands short. From here on, follow the convention above for every new project.
 
 ---
 
@@ -46,12 +48,12 @@ mkdir -p ~/Developer
 
 If you followed Module 00, this already exists. That's fine.
 
-For a project you're about to clone:
+For the next project you clone:
 
 ```bash
-mkdir -p ~/Developer/TrellisLabs
-cd ~/Developer/TrellisLabs
-git clone git@github.com:TrellisLabs/power-user-principles.git
+mkdir -p ~/Developer/<org-or-username>
+cd ~/Developer/<org-or-username>
+git clone git@github.com:<org-or-username>/<repo>.git
 ```
 
 ---

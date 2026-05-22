@@ -25,3 +25,7 @@ SHOP/
 *.swp
 *.swo
 .idea/
+
+# Local AI assistant context — never commit
+CLAUDE.md
+.claude/

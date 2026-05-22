@@ -34,7 +34,7 @@ If you haven't already cloned this repo (the Mac path does this for you), do it 
 
 ```bash
 cd ~/Developer
-git clone https://github.com/TrellisLabs/power-user-principles.git
+git clone https://github.com/mbchisholm/P-U-P.git power-user-principles
 cd power-user-principles
 ```
 
