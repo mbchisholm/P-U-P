@@ -1,0 +1,27 @@
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Secrets
+.env
+
+# Databases
+*.db
+*.sqlite3
+
+# Student practice files (created during modules, not tracked)
+modules/*/examples/
+modules/09-api-project/weather/
+modules/10-database-project/ledger/
+
+# SHOP workspace — separate project
+SHOP/
+
+# Editor
+*.swp
+*.swo
+.idea/

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power User Principles — Live Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/globe.gl@2.27.2/dist/globe.gl.min.js"></script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <div id="globe-container"></div>
+
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <h2>Workshop Chat</h2>
+      <span id="iss-status">ISS: locating...</span>
+    </div>
+    <div id="messages"></div>
+    <form id="message-form">
+      <input type="text" id="author-input" placeholder="Your name" maxlength="20" autocomplete="off">
+      <input type="text" id="message-input" placeholder="Say something to the room..." maxlength="120" autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

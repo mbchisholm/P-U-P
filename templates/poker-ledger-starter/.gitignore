@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Database file is data, not code — don't commit it
+*.db
+*.sqlite3

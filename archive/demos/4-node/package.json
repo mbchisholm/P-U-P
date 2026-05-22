@@ -1,0 +1,12 @@
+{
+  "name": "demo-node",
+  "version": "1.0.0",
+  "description": "Same weather fetch as the Python demo — different language, same result.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

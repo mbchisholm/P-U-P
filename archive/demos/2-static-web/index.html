@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Web Page</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 0 24px;
+      background: #f5f5f5;
+      color: #111;
+    }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .temp { font-size: 3rem; font-weight: 700; color: #0066cc; }
+    .label { font-size: 0.9rem; color: #666; margin-top: 8px; }
+    .loading { color: #999; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>Local Weather</h1>
+  <p>This page fetches live data from a weather API. No server required — the browser does it all.</p>
+
+  <div class="card">
+    <div class="temp" id="temp">—</div>
+    <div class="label" id="wind">Loading...</div>
+    <div class="label" id="updated"></div>
+  </div>
+
+  <script>
+    const LAT = 41.0670;
+    const LON = -73.7076;
+
+    async function fetchWeather() {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,wind_speed_10m`;
+
+      // Open the Network tab in DevTools — you'll see this request happen
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const temp = data.current.temperature_2m;
+      const wind = data.current.wind_speed_10m;
+
+      document.getElementById('temp').textContent = `${temp}°C`;
+      document.getElementById('wind').textContent = `Wind: ${wind} km/h`;
+      document.getElementById('updated').textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+    }
+
+    fetchWeather();
+  </script>
+</body>
+</html>
