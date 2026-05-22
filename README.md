@@ -65,7 +65,7 @@ bash scripts/verify-env.sh
 ```
 modules/      the 12 lessons (each with README, demo scripts, verify.sh)
 scripts/      install-mac.sh, install-wsl.sh, verify-env.sh
-templates/    project starters: env-example, gitignore-starter, poker-ledger-starter
+templates/    project starters → see templates/README.md
 reference/    cheat sheets: shell, git, keyboard shortcuts
 archive/      old live-workshop material, kept for reference
 ```

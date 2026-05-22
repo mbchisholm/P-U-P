@@ -10,27 +10,14 @@ Every tool in this curriculum runs in the terminal. Before anything else can hap
 
 ## Setup
 
-Nothing to do yet. This is the first module.
+Nothing to do yet. This is the first module. Pick your OS, follow that path, then come back here to clone the repo and run the verify script. After this module both paths converge — every later module is the same on Mac and WSL.
 
-Pick your OS and follow that path. After this module, both paths converge.
-
----
-
-## Your OS
-
-### macOS → [mac.md](mac.md)
-
-### Windows → [windows.md](windows.md)
-
----
-
-After you've finished your OS-specific setup, come back here.
-
----
+- **macOS →** [mac.md](mac.md)
+- **Windows →** [windows.md](windows.md)
 
 ## Clone this repo
 
-If you haven't already cloned this repo (the Mac path does this for you), do it now:
+The Mac path clones it for you. If you're on Windows (WSL) or skipped that step, do it now:
 
 ```bash
 cd ~/Developer
@@ -38,17 +25,13 @@ git clone https://github.com/mbchisholm/P-U-P.git power-user-principles
 cd power-user-principles
 ```
 
-**Try it:** Run `ls`. You should see the module folders.
+**Try it:** Run `ls`. You should see the top-level folders:
 
 ```
 modules/   scripts/   templates/   reference/   README.md
 ```
 
----
-
 ## Verify
-
-Run the verify script for this module:
 
 ```bash
 bash modules/00-start-here/verify.sh
@@ -56,14 +39,12 @@ bash modules/00-start-here/verify.sh
 
 Expected output: all green checkmarks. If anything shows ✗, re-read the relevant step in your OS-specific file and try again.
 
----
-
 ## What you can do now
 
 You have a working bash shell, Homebrew (Mac) or WSL (Windows), git, and a cloned copy of this repo. That's the foundation everything else builds on.
 
 ## Stretch
 
-- Run `echo $SHELL`. It tells you which shell you're in. You should see `/bin/zsh` (Mac) or `/bin/bash` (WSL).
-- Run `uname -a`. What does the output tell you?
+- Run `echo $SHELL`. It tells you which shell you're in — `/bin/zsh` on Mac, `/bin/bash` on WSL.
+- Run `uname -a`. What does each piece of the output mean?
 - Run `git log --oneline` inside the repo. What do you see?

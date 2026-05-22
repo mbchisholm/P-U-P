@@ -1,5 +1,7 @@
 # Keyboard Shortcuts Reference
 
+Every shortcut you'll use in the terminal and VS Code. See [shell-quick-ref.md](shell-quick-ref.md) for shell commands and [git-quick-ref.md](git-quick-ref.md) for git.
+
 ## Terminal (all platforms)
 
 | Shortcut | What it does |
@@ -42,5 +44,6 @@
 | `option+↑/↓` / `alt+↑/↓` | Move line up/down |
 | `cmd+d` / `ctrl+d` | Select next occurrence |
 
-## Git (common operations)
-See [git-quick-ref.md](git-quick-ref.md) for full reference.
+## Git
+
+Git commands aren't keybindings — see [git-quick-ref.md](git-quick-ref.md) for the full command reference.
