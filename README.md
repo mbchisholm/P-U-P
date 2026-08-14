@@ -20,7 +20,7 @@ This curriculum teaches the substrate.
 
 ---
 
-## The 12 modules
+## The 13 modules
 
 | # | Module | You'll be able to say… | Time | Prereqs |
 |---|--------|------------------------|------|---------|
@@ -36,6 +36,7 @@ This curriculum teaches the substrate.
 | 09 | [Hitting an API](modules/09-api-project/README.md) | "I can talk to a service on the internet from code I wrote." | 60 min | 06, 08 |
 | 10 | [A Tiny Database](modules/10-database-project/README.md) | "I can persist data and read it back later." | 60 min | 08 |
 | 11 | [SSH Into a Pi](modules/11-pi-ssh/README.md) *(optional)* | "I can run a program on a computer that's not in front of me." | 45 min | 04 |
+| 12 | [Frontend Design](modules/12-frontend-design/README.md) | "I can turn a working UI into a designed one." | 90 min | 06, 08 |
 
 Work through them in order or jump to a topic. **Prereqs** tell you what to do first.
 
@@ -63,7 +64,7 @@ bash scripts/verify-env.sh
 ## Repo layout
 
 ```
-modules/      the 12 lessons (each with README, demo scripts, verify.sh)
+modules/      the 13 lessons (each with README, demo scripts, verify.sh)
 scripts/      install-mac.sh, install-wsl.sh, verify-env.sh
 templates/    project starters → see templates/README.md
 reference/    cheat sheets: shell, git, keyboard shortcuts
