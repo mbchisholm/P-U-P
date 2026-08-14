@@ -27,5 +27,7 @@ SHOP/
 .idea/
 
 # Local AI assistant context — never commit
+# (exception: .claude/skills/ ships with the repo for Module 12)
 CLAUDE.md
-.claude/
+.claude/*
+!.claude/skills/
