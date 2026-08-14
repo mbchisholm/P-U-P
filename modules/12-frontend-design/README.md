@@ -137,9 +137,39 @@ git commit -m "deslop the demo page"
 
 ---
 
-## Part 4 — Now a real project
+## Part 4 — Start from clean, not from scratch
 
-The demo page was the training ground. The skills earn their keep on projects that matter — one of yours.
+You just spent an hour removing mistakes from a page. The cheaper move, next time, is to never type them: **don't start UIs from a blank file.** A blank file invites improvisation, and improvisation is where slop comes from.
+
+This repo ships four clean starting points in [`templates/ui-starters/`](../../templates/ui-starters/README.md) — a landing page, an app dashboard, a form, and a long-form article page. Each is one dependency-free HTML file that opens with a double-click, and each already follows every rule from this module. Open a couple next to your fixed `slop.html`:
+
+```bash
+open ../../templates/ui-starters/dashboard.html   # Mac
+explorer.exe ..\\..\\templates\\ui-starters\\dashboard.html  # WSL
+```
+
+Now look at the top of any starter's CSS. They all begin with the same block:
+
+```css
+:root {
+  --accent: #4f46e5;   /* the ONE accent color */
+  --ink: #1a1a1a;      /* text */
+  --muted: #6b7280;    /* secondary text */
+  --line: #e5e7eb;     /* borders */
+  --surface: #f9fafb;  /* panels */
+  ...
+}
+```
+
+These are **design tokens** — the page's every color decision, named once, used everywhere. Change `--accent` to `#0d9488` and reload: the whole page re-themes and nothing breaks, because no color was ever hard-coded twice. This is the single most reusable idea in this module. It's the same mechanism behind Tailwind's theme and every design system you'll ever meet — the starters are just small enough that you can see all of it at once.
+
+**Try it:** copy `form.html` into a scratch folder, change three tokens, and make it yours. The [starters README](../../templates/ui-starters/README.md) has the full reuse recipe — including how to keep all four pages reading as one product by sharing the token block.
+
+---
+
+## Part 5 — Now a real project
+
+The demo page was the training ground and the starters are the head start. The skills earn their keep on projects that matter — one of yours.
 
 One warning before you start: the instinct is to open your project and say "make it pretty." Resist it. You'll get a *different* generic UI, not a better version of yours. The professional loop is **audit → plan → apply → verify**, and there's a skill specifically for the first step:
 
@@ -164,11 +194,15 @@ This checks your *fixed* `slop.html` — it fails until the gradients, blocked p
 
 ## What you can do now
 
-You can look at an interface and name what's wrong with it: competing accents, layout-property animation, errors far from their cause, controls a keyboard can't reach, spacing off the scale. You can install a ruleset into any project and have your AI assistant enforce it — and review its work, because you know the rules yourself. And you know the loop: audit before you edit, commit before and after. That's not a design trick; it's how careful engineers change anything.
+You can look at an interface and name what's wrong with it: competing accents, layout-property animation, errors far from their cause, controls a keyboard can't reach, spacing off the scale. You can install a ruleset into any project and have your AI assistant enforce it — and review its work, because you know the rules yourself. You can start any new UI from a clean, token-themed page instead of a blank file. And you know the loop: audit before you edit, commit before and after. That's not a design trick; it's how careful engineers change anything.
+
+All of it fits on one page: [reference/frontend-design-quick-ref.md](../../reference/frontend-design-quick-ref.md). Bookmark it next to the git and shell cards.
 
 ## Stretch
 
 - Read the other five `SKILL.md` files end to end. They're short, and they're a masterclass in turning judgment into checkable rules.
+- Re-theme all four starters to one brand of your invention — same token values in every file — and confirm they read as one product. Congratulations, you've built a design system.
+- Build a real page for one of your projects by combining starters: `landing.html` structure with `article.html`'s prose column, say. The tokens make the seams invisible.
 - Deploy something (GitHub Pages is free) and paste the link into a chat app. `/fixing-metadata` is the difference between a naked URL and a real preview card.
 - Write a skill of your own: `.claude/skills/my-rules/SKILL.md` in one of your projects, encoding three rules you keep repeating. You know the format now.
 - Browse the full registry at [ui-skills.com](https://www.ui-skills.com) — community skills for Next.js, Vue, React Native, 3D, and more.

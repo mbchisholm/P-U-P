@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+  ui-starters / dashboard.html — an app shell: sidebar, stat cards, data table.
+  Reuse: copy this file, swap the nav items, cards, and table for your data,
+  and re-theme via the :root tokens. Pairs well with Module 10's database —
+  this is the page its numbers want to live on.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — Product</title>
+  <meta name="description" content="Overview of activity: totals, trends, and recent items.">
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --accent-dark: #4338ca;
+      --ink: #1a1a1a;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --surface: #f9fafb;
+      --ok: #047857;
+      --warn: #b45309;
+      --radius: 8px;
+      --font: -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { margin: 0; box-sizing: border-box; }
+    body { font-family: var(--font); color: var(--ink); background: var(--surface); line-height: 1.5; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100dvh; }
+
+    /* ---------- sidebar ---------- */
+    .side { background: var(--bg); border-right: 1px solid var(--line); padding: 20px 12px; }
+    .side .logo { font-weight: 700; font-size: 16px; padding: 4px 12px 16px; display: block; color: var(--ink); text-decoration: none; }
+    .side nav { display: flex; flex-direction: column; gap: 2px; }
+    .side nav a {
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      transition: background-color 150ms ease-out;
+    }
+    .side nav a:hover { background: var(--surface); color: var(--ink); }
+    .side nav a[aria-current="page"] { background: var(--surface); color: var(--accent); font-weight: 600; }
+
+    /* ---------- main ---------- */
+    main { padding: 32px; max-width: 1040px; }
+    .page-head { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .page-head h1 { font-size: 24px; }
+    .page-head .btn {
+      margin-left: auto;
+      padding: 9px 18px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 150ms ease-out;
+    }
+    .page-head .btn:hover { background: var(--accent-dark); }
+
+    /* ---------- stat cards ---------- */
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; }
+    .stat .label { font-size: 13px; color: var(--muted); }
+    .stat .value { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 4px; }
+    .stat .delta { font-size: 13px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+    .delta.up { color: var(--ok); }
+    .delta.down { color: var(--warn); }
+
+    /* ---------- table ---------- */
+    .panel { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .panel h2 { font-size: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; font-size: 13px; }
+    tr:last-child td { border-bottom: none; }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge.ok { background: #ecfdf5; color: var(--ok); }
+    .badge.warn { background: #fffbeb; color: var(--warn); }
+
+    .empty { padding: 40px 20px; text-align: center; color: var(--muted); }
+    .empty button {
+      display: block; margin: 8px auto 0;
+      border: none; background: none;
+      color: var(--accent); font-weight: 600; font-size: 14px; cursor: pointer;
+    }
+
+    @media (max-width: 720px) {
+      .shell { grid-template-columns: 1fr; }
+      .side { border-right: none; border-bottom: 1px solid var(--line); }
+      .side nav { flex-direction: row; flex-wrap: wrap; }
+      main { padding: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="shell">
+    <aside class="side">
+      <a class="logo" href="/">Product</a>
+      <nav aria-label="Main">
+        <a href="#overview" aria-current="page">Overview</a>
+        <a href="#items">Items</a>
+        <a href="#reports">Reports</a>
+        <a href="#settings">Settings</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="page-head">
+        <h1>Overview</h1>
+        <button class="btn">New item</button>
+      </div>
+
+      <section class="stats" aria-label="Key numbers">
+        <div class="stat">
+          <div class="label">Total items</div>
+          <div class="value">1,024</div>
+          <div class="delta up">+12 this week</div>
+        </div>
+        <div class="stat">
+          <div class="label">Active</div>
+          <div class="value">87</div>
+          <div class="delta up">+4 this week</div>
+        </div>
+        <div class="stat">
+          <div class="label">Overdue</div>
+          <div class="value">3</div>
+          <div class="delta down">+1 this week</div>
+        </div>
+        <div class="stat">
+          <div class="label">Hours saved</div>
+          <div class="value">11.5</div>
+          <div class="delta up">+2.5 this week</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Recent items</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Owner</th>
+              <th class="num">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quarterly report</td>
+              <td><span class="badge ok">Done</span></td>
+              <td>Sam</td>
+              <td class="num">1,250.00</td>
+            </tr>
+            <tr>
+              <td>Vendor renewal</td>
+              <td><span class="badge warn">Waiting</span></td>
+              <td>Alex</td>
+              <td class="num">340.50</td>
+            </tr>
+            <tr>
+              <td>Site migration</td>
+              <td><span class="badge ok">Done</span></td>
+              <td>Sam</td>
+              <td class="num">88.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Empty state, when there are no rows: one clear next action.
+        <div class="empty">
+          No items yet.
+          <button>Create your first item</button>
+        </div>
+        -->
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

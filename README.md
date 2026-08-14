@@ -67,7 +67,7 @@ bash scripts/verify-env.sh
 modules/      the 13 lessons (each with README, demo scripts, verify.sh)
 scripts/      install-mac.sh, install-wsl.sh, verify-env.sh
 templates/    project starters → see templates/README.md
-reference/    cheat sheets: shell, git, keyboard shortcuts
+reference/    cheat sheets: shell, git, keyboard shortcuts, frontend design
 archive/      old live-workshop material, kept for reference
 ```
 

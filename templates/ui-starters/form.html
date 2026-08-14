@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+  ui-starters / form.html — a form done right: labels, hints, inline errors.
+  Reuse: copy this file, swap the fields for yours, keep the pattern —
+  every input gets a <label>, hints via aria-describedby, errors inline
+  next to the field with role="alert". Re-theme via the :root tokens.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account — Product</title>
+  <meta name="description" content="Sign up for Product with your name and email.">
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --accent-dark: #4338ca;
+      --ink: #1a1a1a;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --surface: #f9fafb;
+      --danger: #b91c1c;
+      --radius: 8px;
+      --font: -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.5;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .card h1 { font-size: 22px; text-wrap: balance; }
+    .card > p { margin-top: 6px; color: var(--muted); font-size: 15px; text-wrap: pretty; }
+
+    form { margin-top: 24px; display: flex; flex-direction: column; gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 14px; font-weight: 600; }
+    input {
+      padding: 11px 12px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-family: inherit;
+    }
+    input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+    .hint { font-size: 13px; color: var(--muted); }
+    .error { display: none; font-size: 13px; color: var(--danger); }
+    .field.invalid .error { display: block; }
+    .field.invalid input { border-color: var(--danger); }
+
+    button[type="submit"] {
+      margin-top: 6px;
+      padding: 12px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 150ms ease-out;
+    }
+    button[type="submit"]:hover { background: var(--accent-dark); }
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .alt { margin-top: 20px; text-align: center; font-size: 14px; color: var(--muted); }
+    .alt a { color: var(--accent); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <h1>Create your account</h1>
+    <p>Free while you're learning. No card required.</p>
+
+    <form novalidate onsubmit="return validate(event)">
+      <div class="field" id="field-name">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" aria-describedby="name-error">
+        <p class="error" id="name-error" role="alert">Enter your name.</p>
+      </div>
+
+      <div class="field" id="field-email">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error">
+        <p class="error" id="email-error" role="alert">That doesn't look like an email address.</p>
+      </div>
+
+      <div class="field" id="field-password">
+        <label for="password">Password</label>
+        <!-- Never block paste — password managers paste. -->
+        <input id="password" name="password" type="password" autocomplete="new-password"
+               aria-describedby="password-hint password-error">
+        <p class="hint" id="password-hint">At least 8 characters.</p>
+        <p class="error" id="password-error" role="alert">Password needs at least 8 characters.</p>
+      </div>
+
+      <button type="submit">Create account</button>
+    </form>
+
+    <p class="alt">Already have an account? <a href="#signin">Sign in</a></p>
+  </main>
+
+  <script>
+    // Inline validation pattern: mark the field, show the error next to it,
+    // focus the first problem. Errors never appear far from their cause.
+    function validate(event) {
+      event.preventDefault();
+      var firstInvalid = null;
+
+      function setValid(fieldId, inputId, ok) {
+        var field = document.getElementById(fieldId);
+        var input = document.getElementById(inputId);
+        field.classList.toggle("invalid", !ok);
+        if (ok) {
+          input.removeAttribute("aria-invalid");
+        } else {
+          input.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || input;
+        }
+      }
+
+      setValid("field-name", "name", document.getElementById("name").value.trim() !== "");
+      setValid("field-email", "email", /.+@.+\..+/.test(document.getElementById("email").value));
+      setValid("field-password", "password", document.getElementById("password").value.length >= 8);
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return false;
+      }
+      // Replace with a real submit.
+      alert("Account created (demo).");
+      return false;
+    }
+  </script>
+</body>
+</html>

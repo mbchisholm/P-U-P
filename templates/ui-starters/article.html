@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+  ui-starters / article.html — a readable long-form page: docs, blog post, notes.
+  Reuse: copy this file, replace the prose. The design is almost entirely
+  typography — measure (line length), scale, and spacing. Re-theme via :root.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How the thing works — Product docs</title>
+  <meta name="description" content="A plain-language walkthrough of how the thing works, with examples.">
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --ink: #1a1a1a;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --surface: #f9fafb;
+      --radius: 8px;
+      --font: -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    * { margin: 0; box-sizing: border-box; }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.65; }
+    a { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    header { border-bottom: 1px solid var(--line); }
+    header .wrap { max-width: 680px; margin: 0 auto; padding: 16px 24px; display: flex; gap: 16px; font-size: 15px; }
+    header a.logo { color: var(--ink); font-weight: 700; text-decoration: none; }
+    header nav { margin-left: auto; display: flex; gap: 16px; }
+    header nav a { color: var(--muted); text-decoration: none; }
+    header nav a:hover { color: var(--ink); }
+
+    /* The measure: 65–70 characters per line is the whole secret. */
+    article { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+
+    article h1 { font-size: 34px; line-height: 1.2; text-wrap: balance; }
+    .meta { margin-top: 8px; color: var(--muted); font-size: 14px; }
+    .lead { margin-top: 20px; font-size: 19px; color: var(--muted); text-wrap: pretty; }
+
+    article h2 { font-size: 22px; margin: 40px 0 0; text-wrap: balance; }
+    article p { margin-top: 16px; text-wrap: pretty; }
+    article ul, article ol { margin-top: 16px; padding-left: 24px; }
+    article li { margin-top: 6px; }
+
+    blockquote {
+      margin: 24px 0 0;
+      padding: 4px 0 4px 20px;
+      border-left: 3px solid var(--accent);
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    pre {
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    code { font-family: var(--mono); font-size: 0.92em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+    pre code { background: none; padding: 0; }
+
+    .footnav {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="/">Product</a>
+      <nav>
+        <a href="#docs">Docs</a>
+        <a href="#changelog">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <article>
+    <h1>How the thing works</h1>
+    <p class="meta">Updated August 2026 · 6 min read</p>
+    <p class="lead">Open with the answer. The first paragraph should tell a hurried reader everything; the rest of the page is for the reader who wants to know why.</p>
+
+    <h2>The core idea</h2>
+    <p>Body text lives inside a measure of roughly 65 characters — that's the <code>max-width: 680px</code> on this column, and it's doing more for readability than any font choice could. Lines longer than that make the eye lose its place on the way back; lines much shorter make reading feel choppy.</p>
+    <p>Paragraphs get space <em>between</em> them, not indentation, and headings sit closer to the text they introduce than to the text they follow. That one asymmetry is most of what people mean by "clean."</p>
+
+    <blockquote>Pull one sentence out when it carries the whole section — sparingly, or it stops meaning anything.</blockquote>
+
+    <h2>Showing code</h2>
+    <p>Code blocks sit in a quiet panel and scroll horizontally rather than wrapping:</p>
+    <pre><code>$ curl -s https://api.example.com/status
+{ "ok": true, "uptime": "99.99%" }</code></pre>
+
+    <h2>When to use lists</h2>
+    <p>Use a list when the items are genuinely parallel:</p>
+    <ul>
+      <li>Each item is one idea, phrased the same way.</li>
+      <li>Three to five items — more than that wants subheadings.</li>
+      <li>If the items need full paragraphs, they're sections, not bullets.</li>
+    </ul>
+
+    <nav class="footnav" aria-label="Adjacent pages">
+      <a href="#prev">← Getting started</a>
+      <a href="#next">Configuration →</a>
+    </nav>
+  </article>
+
+</body>
+</html>
