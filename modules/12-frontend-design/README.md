@@ -141,7 +141,7 @@ git commit -m "deslop the demo page"
 
 You just spent an hour removing mistakes from a page. The cheaper move, next time, is to never type them: **don't start UIs from a blank file.** A blank file invites improvisation, and improvisation is where slop comes from.
 
-This repo ships four clean starting points in [`templates/ui-starters/`](../../templates/ui-starters/README.md) — a landing page, an app dashboard, a form, and a long-form article page. Each is one dependency-free HTML file that opens with a double-click, and each already follows every rule from this module. Open a couple next to your fixed `slop.html`:
+This repo ships six clean starting points in [`templates/ui-starters/`](../../templates/ui-starters/README.md) — a landing page, an app dashboard, a form, a long-form article page, and a light/dark-themed blog pair (front page + post page). Each is one dependency-free HTML file that opens with a double-click, and each already follows every rule from this module. Open a couple next to your fixed `slop.html`:
 
 ```bash
 open ../../templates/ui-starters/dashboard.html   # Mac

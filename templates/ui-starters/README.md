@@ -12,6 +12,8 @@ Four clean, self-contained pages you can copy as the starting point for real pro
 | [`dashboard.html`](dashboard.html) | An app shell: sidebar nav, stat cards, data table with status badges |
 | [`form.html`](form.html) | Any form: labels, hints, inline errors done right (the pattern most worth stealing) |
 | [`article.html`](article.html) | Long-form reading: docs, blog posts, notes — typography does all the work |
+| [`blog-index.html`](blog-index.html) | A blog front page: kicker-above-title post cards, **light/dark themes** |
+| [`blog-post.html`](blog-post.html) | The matching post page: contents panel, reading surface, post-to-post nav |
 
 ## How to reuse one
 
@@ -36,6 +38,20 @@ Four clean, self-contained pages you can copy as the starting point for real pro
 Change `--accent` (and its hover shade `--accent-dark`) and the whole page follows — that's what "design tokens" means, and it's the same idea Tailwind and every design system scale up. Because all four pages share the block, you can theme them together and they'll read as one product.
 
 4. **Check yourself** with the skills: `/baseline-ui yourpage.html` should come back clean. If you've edited heavily, run `/fixing-accessibility` and `/fixing-metadata` too.
+
+## Dark mode is just tokens twice
+
+The blog pair shows the full dark-mode pattern, and it costs almost nothing once you have tokens:
+
+1. Redefine the same tokens under `html.dark` — different values, same names. No other CSS changes.
+2. A three-line script in `<head>` applies the saved theme **before paint** (no flash of the wrong theme), defaulting to the visitor's `prefers-color-scheme`.
+3. A toggle button flips the class and saves the choice to `localStorage`.
+
+If your colors are hard-coded anywhere outside the token block, dark mode means hunting them all down. If they're tokens, dark mode is one extra block. This is the strongest argument for tokens there is.
+
+## A real site running this pattern
+
+These starters aren't hypothetical: the [half-measure](https://github.com/mbchisholm/half-measure) blog (Astro) runs this exact system — same token names, same kicker-above-title cards, same surface-panel contents box, re-themed warm paper/copper instead of the default indigo. Diff its `src/styles/global.css` token block against a starter's to see how far a re-theme alone can move the identity.
 
 ## Mixing pages
 

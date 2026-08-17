@@ -55,6 +55,15 @@ Commit before and after every pass — the diff is your before/after screenshot.
 | Never block paste | Password managers paste; so do humans |
 | Tab through your UI before shipping | If the keyboard can't finish the flow, it's broken |
 
+## Tokens & theming
+
+| Rule | Why |
+|---|---|
+| Every color decision is a named token in `:root` | Change `--accent` once, the whole page follows |
+| Dark mode = the same tokens redefined under `html.dark` | One extra block, not a hunt through the stylesheet |
+| Apply the saved theme in `<head>` before paint | Otherwise every load flashes the wrong theme |
+| Share the token block across pages | Different pages read as one product |
+
 ## Layout & metadata
 
 | Rule | Why |
