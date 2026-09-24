@@ -155,7 +155,7 @@ The Source Control panel is a GUI for the same operations you run in the termina
 
 ## Branches
 
-Branches let you work on something without touching the main line of code.
+A branch lets you work on something without touching the main line of code.
 
 ```bash
 git checkout -b feature/my-change    # create and switch to a new branch
@@ -165,6 +165,8 @@ git branch -d feature/my-change      # delete the branch after merging
 ```
 
 Commit a lot. Commits are free. A branch with 20 small commits is easier to understand and debug than one with 1 giant commit.
+
+Those are the commands. **Knowing when a change deserves a branch — and when it doesn't — is [Module 12](../12-git-in-practice/README.md).** Until then, working directly on `main` in your own practice repos is the right call.
 
 ---
 
@@ -179,6 +181,8 @@ bash modules/08-ide-and-git/verify.sh
 ## What you can do now
 
 You can clone a repo, open it in VS Code, edit files, commit your changes with meaningful messages, and push to GitHub. This is the core loop of software development.
+
+**Next:** [Module 12](../12-git-in-practice/README.md) turns that loop into judgment — when to branch, when to open a pull request, when to file an issue, and when all three are a waste of your time. Do it before you share a repo with anyone.
 
 ## Stretch
 
