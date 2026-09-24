@@ -1,6 +1,6 @@
 # Git Quick Reference
 
-The day-to-day commands you'll run constantly. Bookmark this. See [shell-quick-ref.md](shell-quick-ref.md) for non-git shell commands and [shortcuts.md](shortcuts.md) for keyboard shortcuts.
+The day-to-day commands you'll run constantly. Bookmark this. For *which* command you want in a given situation, see [git-decisions.md](git-decisions.md). See [shell-quick-ref.md](shell-quick-ref.md) for non-git shell commands and [shortcuts.md](shortcuts.md) for keyboard shortcuts.
 
 ## Core workflow
 
@@ -23,6 +23,7 @@ The day-to-day commands you'll run constantly. Bookmark this. See [shell-quick-r
 | `git config --global user.email "<you@email.com>"` | Set the email attached to your commits |
 | `git config --global init.defaultBranch main` | Use `main` instead of `master` for new repos |
 | `git config --global core.editor "code --wait"` | Use VS Code for commit messages and merges |
+| `git config --global pull.rebase false` | Merge on `git pull` — without this, pull aborts when branches diverge |
 
 ## Starting a repo
 
